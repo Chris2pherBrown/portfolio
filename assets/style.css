@@ -67,213 +67,66 @@
 
 
 
-/* ========================================
-   INTERACTIVE HEADINGS — MIDNIGHT BLUE
-   ======================================== */
-
-
-/* Heading saturation — no glow or outline */
-.hero h1,
-h2.display,
-.future-copy h2,
-.section-heading h2,
-.contact h2 {
-  filter: saturate(0.9);
-  transition: filter 0.6s ease;
-}
-
-/* Desktop hover */
-@media (hover: hover) and (pointer: fine) {
-  .hero h1,
-  .hero h1 *,
-  h2.display,
-  h2.display *,
-  .future-copy h2,
-  .future-copy h2 *,
-  .section-heading h2,
-  .section-heading h2 *,
-  .contact h2,
-  .contact h2 * {
-    cursor: default !important;
-  }
-
-  .hero h1:hover,
-  h2.display:hover,
-  .future-copy h2:hover,
-  .section-heading h2:hover,
-  .contact h2:hover {
-    filter: saturate(2) brightness(1.08);
-  }
-}
-
-/* Mobile */
-@media (hover: none) {
-  .hero h1,
-  h2.display,
-  .future-copy h2,
-  .section-heading h2,
-  .contact h2 {
-    filter: saturate(0.9);
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .hero h1,
-  h2.display,
-  .future-copy h2,
-  .section-heading h2,
-  .contact h2 {
-    transition: none;
-  }
-}
-
-
-
-/* Unified blue headings — Sections 01, 02, 03 */
-#approach h2,
-#work h2,
-#experience h2 {
+/* ==========================================================
+   Heading accents — consolidated, valid CSS
+   Desktop retains the established palette and hover behavior.
+   ========================================================== */
+#approach h2, #work h2, #career h2, #capabilities h2 {
   filter: none;
-  transition: filter 0.6s ease;
 }
-
-/* Color only the emphasized words */
-#approach h2 em,
-#work h2 em,
-#experience h2 em {
+#approach h2 em, #work h2 em, #career h2 em, #capabilities h2 em {
   color: #80B7DD;
+  -webkit-text-fill-color: #80B7DD;
+  -webkit-text-stroke: 0;
   font-style: normal;
-  transition: color 0.6s ease;
+  text-shadow: none;
+  transition: color .6s ease, -webkit-text-fill-color .6s ease;
 }
-
-/* Desktop hover */
 @media (hover: hover) and (pointer: fine) {
-  #approach h2:hover em,
-  #work h2:hover em,
-  #experience h2:hover em {
+  #approach h2:hover em, #work h2:hover em,
+  #career h2:hover em, #capabilities h2:hover em {
     color: #59C0F2;
+    -webkit-text-fill-color: #59C0F2;
   }
 }
 
-/* Accessibility */
+/* Mobile refinements: no desktop layout changes */
+@media (max-width: 760px) {
+  /* Restrained slate-blue on the light experience background */
+  #career h2 em {
+    color: #7299B7;
+    -webkit-text-fill-color: #7299B7;
+  }
+  #career .career-head { margin-bottom: 48px; }
+  #career .career-head p { max-width: 35rem; }
+  #career .career-row { padding: 22px 4px; }
+  #career .career-row:hover { padding-left: 4px; }
+
+  /* Decorative symbols look like emoji on some mobile devices.
+     Hide only decorative marks; retain actual navigation text. */
+  .career-arrow, .step-mark, .future-head-pulse,
+  .future-link > span, .inline-link > span,
+  .scroll-cue > span, .nav-cta > span,
+  .pill > span { display: none !important; }
+
+  /* Career progression graphic: simpler, less visually noisy */
+  .future-graphic { max-width: 100%; }
+  .future-step { grid-template-columns: 28px minmax(0,1fr); }
+  .future-step-next { box-shadow: none; }
+  .future-step-shimmer { display: none; }
+  .future-graphic-head, .future-graphic-foot { letter-spacing: .08em; }
+  .future-bottom { gap: 10px; flex-wrap: wrap; }
+  .hero-cta .pill { gap: 12px; }
+}
+@media (max-width: 420px) {
+  #career .display { font-size: clamp(38px, 9vw, 48px); }
+  #career .career-row { grid-template-columns: 82px minmax(0,1fr); gap: 10px; }
+  #career .career-row h3 { font-size: 18px; }
+  .future-step small { letter-spacing: .04em; }
+  .future-graphic-head, .future-graphic-foot { flex-wrap: wrap; }
+}
 @media (prefers-reduced-motion: reduce) {
-  #approach h2 em,
-  #work h2 em,
-  #experience h2 em {
+  #approach h2 em, #work h2 em, #career h2 em, #capabilities h2 em {
     transition: none;
   }
-}
-
-/* Sections 03 & 04 — matching blue accent */
-
-/* Emphasized words in both sections */
-#experience h2 em,
-#experience h2 span,
-#capabilities h2 em,
-#capabilities h2 span {
-  color: #83BCE3 !important;
-  -webkit-text-fill-color: #83BCE3 !important;
-  filter: none !important;
-  text-shadow: none !important;
-  transition: color 0.6s ease,
-              -webkit-text-fill-color 0.6s ease;
-}
-
-/* Keep the entire heading from changing color */
-#experience h2,
-#capabilities h2 {
-  filter: none !important;
-}
-
-/* Desktop hover */
-@media (hover: hover) and (pointer: fine) {
-  #experience h2:hover em,
-  #experience h2:hover span,
-  #capabilities h2:hover em,
-  #capabilities h2:hover span {
-    color: #65C6F4 !important;
-    -webkit-text-fill-color: #65C6F4 !important;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #experience h2 em,
-  #experience h2 span,
-  #capabilities h2 em,
-  #capabilities h2 span {
-    transition: none;
-  }
-}
-
-/* Section 03 — Experience heading color correction */
-
-/* Target the emphasized second line */
-#experience h2.display .muted,
-#experience h2.display .accent,
-#experience h2.display .outline-word,
-#experience h2.display em,
-#experience h2.display span {
-  color: #65C6F4 !important;
-  -webkit-text-fill-color: #65C6F4 !important;
-  -webkit-text-stroke: 0 !important;
-  text-shadow: none !important;
-  filter: none !important;
-  transition: color 0.6s ease;
-}
-
-/* Hover — slightly brighter blue */
-@media (hover: hover) and (pointer: fine) {
-  #experience h2.display:hover .muted,
-  #experience h2.display:hover .accent,
-  #experience h2.display:hover .outline-word,
-  #experience h2.display:hover em,
-  #experience h2.display:hover span {
-    color: #8AD8FF !important;
-    -webkit-text-fill-color: #8AD8FF !important;
-  }
-
-
-
-
-/* SECTION 03 — Match Section 02 */
-
-/* Match the resting blue and smooth transition */
-#career h2 em,
-#career h2 span {
-  color: #80B7DD !important;
-  -webkit-text-fill-color: #80B7DD !important;
-  -webkit-text-stroke: 0 !important;
-  text-shadow: none !important;
-  filter: none !important;
-
-  transition:
-    color 0.6s ease,
-    -webkit-text-fill-color 0.6s ease;
-}
-
-/* Prevent older heading filters from interfering */
-#career h2,
-#career h2:hover {
-  filter: none !important;
-}
-
-/* Match Section 02's hover color */
-@media (hover: hover) and (pointer: fine) {
-  #career h2:hover em,
-  #career h2:hover span {
-    color: #59C0F2 !important;
-    -webkit-text-fill-color: #59C0F2 !important;
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  #career h2 em,
-  #career h2 span {
-    transition: none;
-  }
-}
-
 }
