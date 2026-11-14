@@ -202,4 +202,35 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .mobile-profile { animation: none !important; opacity: 1; transform: none; }
+   /* Mobile portrait — compact and professional */
+@media (max-width: 760px) {
+  .hero .profile {
+    width: 140px !important;
+    max-width: 140px !important;
+    margin: 28px 0 12px !important;
+    justify-self: start;
+    transform: none !important;
+  }
+
+  .hero .profile-image {
+    width: 140px;
+    height: 165px;
+    aspect-ratio: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+  }
+
+  .hero .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .hero .profile-footer {
+    margin-top: 12px;
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
 }
