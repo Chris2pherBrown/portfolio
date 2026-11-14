@@ -202,7 +202,9 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .mobile-profile { animation: none !important; opacity: 1; transform: none; }
-   /* Selected Work — mobile visual improvements */
+}
+
+/* Selected Work — mobile visual improvements */
 @media (max-width: 760px) {
   #work .case {
     background: linear-gradient(
@@ -210,11 +212,11 @@
       #202b38 0%,
       #17212d 100%
     );
-    border: 1px solid rgba(130, 185, 225, .28);
+    border: 1px solid rgba(130, 185, 225, .42);
     border-radius: 16px;
     padding: 22px;
     margin-bottom: 24px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, .35), 0 0 0 1px rgba(169,213,242,.06);
     overflow: hidden;
     transition:
       transform .3s ease,
