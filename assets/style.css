@@ -237,5 +237,36 @@
 @media (min-width: 761px) {
   .mobile-profile {
     display: none !important;
+     
   }
+   /* Portrait visibility — desktop */
+.mobile-profile {
+  display: none !important;
+}
+
+/* Portrait visibility — mobile */
+@media screen and (max-width: 760px) {
+  .hero-inner > .profile {
+    display: none !important;
+  }
+
+  .mobile-profile {
+    display: flex !important;
+    align-items: center;
+    max-width: 430px;
+  }
+
+  .mobile-profile-photo {
+    width: 82px !important;
+    height: 98px !important;
+    flex: 0 0 82px;
+    overflow: hidden;
+  }
+
+  .mobile-profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 }
