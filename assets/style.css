@@ -130,3 +130,76 @@
     transition: none;
   }
 }
+
+/* ==========================================================
+   Mobile V2 — portrait placement, editorial rhythm and motion
+   Desktop remains unchanged.
+   ========================================================== */
+.mobile-profile { display: none; }
+@media (max-width: 760px) {
+  .hero-inner { padding-top: 58px; padding-bottom: 50px; }
+  .hero-main { min-width: 0; }
+  .hero h1 { margin: 27px 0 23px; line-height: 1.02; }
+  .hero-sub { max-width: 36rem; line-height: 1.65; }
+  /* The desktop portrait is replaced by an integrated mobile identity card. */
+  .hero-inner > .profile { display: none !important; }
+  .mobile-profile {
+    display: flex; align-items: center; gap: 17px;
+    margin: 31px 0 5px; padding: 13px;
+    width: min(100%, 430px);
+    border: 1px solid rgba(169,213,242,.25);
+    border-radius: 12px;
+    background: linear-gradient(115deg,rgba(34,55,74,.86),rgba(18,32,46,.62));
+    box-shadow: 0 12px 34px rgba(0,0,0,.13);
+  }
+  .mobile-profile-photo {
+    flex: 0 0 94px; width: 94px; height: 110px;
+    border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(169,213,242,.26);
+    background: #22374b;
+  }
+  .mobile-profile-photo img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%;
+    filter: saturate(.88) contrast(1.02);
+  }
+  .mobile-profile-copy { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .mobile-profile-copy strong {
+    font-family: var(--display); font-size: 15px;
+    letter-spacing: .04em; line-height: 1.2;
+  }
+  .mobile-profile-copy span { font-size: 10px; color: #b9d8ed; letter-spacing: .065em; line-height: 1.5; }
+  .mobile-profile-copy small { font-size: 9px; color: #91a5b5; letter-spacing: .06em; line-height: 1.5; }
+  .hero-cta { margin-top: 25px; }
+  .hero-cta .pill { min-height: 49px; }
+  .section-top { margin-bottom: 40px; }
+  .work-heading { margin-bottom: 50px; }
+  .case-visual { min-height: 240px; }
+  .future-aura { width: 75%; right: -28%; opacity: .55; }
+  .future-layout { gap: 35px; }
+  .future-graphic { margin-right: 4px; }
+}
+@media (max-width: 420px) {
+  .mobile-profile { gap: 12px; padding: 10px; }
+  .mobile-profile-photo { flex-basis: 82px; width: 82px; height: 98px; }
+  .mobile-profile-copy strong { font-size: 13px; }
+  .mobile-profile-copy span { font-size: 9px; }
+  .mobile-profile-copy small { font-size: 8px; }
+}
+/* Existing IntersectionObserver toggles .visible on .reveal.
+   On mobile, vary the entrance direction without changing desktop. */
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .section .reveal { transform: translate3d(0, 25px, 0); transition: opacity .75s ease, transform .75s cubic-bezier(.22,1,.36,1); }
+  .section .reveal.visible { transform: translate3d(0,0,0); }
+  .principle.reveal, .career-row.reveal, .case.reveal { transform: translate3d(24px, 0, 0); }
+  .principle.reveal:nth-child(even), .career-row.reveal:nth-child(even), .case.reveal:nth-child(even) { transform: translate3d(-24px, 0, 0); }
+  .principle.reveal.visible, .career-row.reveal.visible, .case.reveal.visible { transform: translate3d(0,0,0); }
+  .mobile-profile.animate-in { animation: mobilePortraitIn .85s .28s both cubic-bezier(.22,1,.36,1); }
+  @keyframes mobilePortraitIn {
+    from { opacity: 0; transform: translate3d(22px,12px,0); }
+    to { opacity: 1; transform: translate3d(0,0,0); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-profile { animation: none !important; opacity: 1; transform: none; }
+}
