@@ -52,4 +52,27 @@
 <section class="section capabilities" id="capabilities"><div class="section-top reveal"><span class="section-id">04 / CAPABILITIES</span><span class="section-caption">TECHNICAL FOUNDATION</span></div><div class="cap-layout"><div class="reveal"><h2 class="display">A broad base.<br><em>A technical edge.</em></h2><p>Cross-functional experience connecting hardware, quality, documentation, and people.</p></div><div class="cap-list reveal"><article><span>01</span><div><h3>Electrical testing</h3><p>Hipot, ground bond, 208V systems, functional verification, electrical drawings</p></div><span>↗</span></article><article><span>02</span><div><h3>Manufacturing systems</h3><p>Semiconductor vacuum equipment, electro-mechanical assembly, BOMs, quality</p></div><span>↗</span></article><article><span>03</span><div><h3>Training & leadership</h3><p>Technical onboarding, competency matrices, production coordination</p></div><span>↗</span></article><article><span>04</span><div><h3>Technical documentation</h3><p>SOPs, process capture, standard work, SAP / Encompix support</p></div><span>↗</span></article></div></div></section>
 <section class="future section" id="next-chapter"><div class="future-grid" aria-hidden="true"></div><div class="future-aura" aria-hidden="true"></div><div class="future-beam" aria-hidden="true"></div><div class="future-top reveal"><span class="section-id">05 / WHAT'S NEXT</span><span class="future-status"><i></i> BUILDING ON THE FOUNDATION</span></div><div class="future-layout"><div class="future-copy reveal"><span class="future-eyebrow"><span class="future-eyebrow-line"></span> THE NEXT STEP IN MY CAREER</span><h2>From the<br>production floor<br><em>to process design.</em></h2><p>My foundation is hands-on manufacturing: assembly, electrical testing, technical training, and team leadership. My next goal is to grow into manufacturing engineering—helping design, improve, and scale the processes behind reliable production.</p><a class="future-link" href="#work">EXPLORE MY WORK <span>↗</span></a></div><div class="future-graphic reveal" aria-label="Career development path from manufacturing experience toward manufacturing engineering"><div class="future-graphic-head"><span>CAREER TRAJECTORY <span class="future-head-pulse">●</span></span><span>01—04 / PROGRESSION</span></div><div class="future-steps"><div class="future-step"><span class="step-index">01</span><div><strong>BUILD</strong><small>ASSEMBLY & INTEGRATION</small></div><span class="step-mark">✓</span></div><div class="future-step"><span class="step-index">02</span><div><strong>VERIFY</strong><small>TESTING & QUALITY</small></div><span class="step-mark">✓</span></div><div class="future-step"><span class="step-index">03</span><div><strong>ENABLE</strong><small>TRAINING & LEADERSHIP</small></div><span class="step-mark">✓</span></div><div class="future-step future-step-next"><span class="future-step-shimmer" aria-hidden="true"></span><span class="step-index">04</span><div><strong>ENGINEER</strong><small>PROCESS DESIGN & IMPROVEMENT</small></div><span class="step-mark step-arrow">↗</span></div></div><div class="future-graphic-foot"><span><i></i> CURRENT DIRECTION</span><span>MANUFACTURING ENGINEERING</span></div></div></div><div class="future-bottom" aria-hidden="true"><span>PROCESS</span><span>PRECISION</span><span>PROGRESS</span></div></section>
 <section class="contact section" id="contact"><div class="section-top reveal"><span class="section-id">06 / CONTACT</span><span class="section-caption">LET'S START A CONVERSATION</span></div><div class="contact-grid reveal"><div><h2 class="display">Let's build<br><em>something better.</em></h2><p>Interested in conversations around semiconductor manufacturing, technical leadership, training systems, and engineering opportunities in the Portland metropolitan area.</p><div class="contact-buttons"><a class="pill primary" href="https://www.linkedin.com/in/christopher-brown-244735180/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a></div></div><div class="contact-brand" aria-hidden="true"><div class="contact-brand-rings"></div><div class="contact-mark monogram"><img class="cb-logo-image" src="images/cb-mark.png" alt="" loading="eager"></div><span class="contact-brand-label">CHRISTOPHER BROWN / CB</span></div></div></section></main><footer><span>© <span id="year">2026</span> CHRISTOPHER BROWN</span><span>DESIGNED FOR CLARITY. BUILT FOR IMPACT.</span><a href="#home">BACK TO TOP ↑</a></footer>
-</body></html>
+<script>
+/* Dedicated mobile work-card observer; does not depend on main.js. */
+(function () {
+  function setupWorkMotion() {
+    var cards = Array.from(document.querySelectorAll('#work .case'));
+    if (!cards.length || !window.IntersectionObserver || !window.matchMedia('(max-width: 760px) and (prefers-reduced-motion: no-preference)').matches) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('work-entered');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -25px 0px' });
+    cards.forEach(function(card) {
+      if (card.getBoundingClientRect().top < window.innerHeight * 0.78) card.classList.add('work-entered');
+      else observer.observe(card);
+    });
+    document.documentElement.classList.add('mobile-work-motion');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupWorkMotion);
+  else setupWorkMotion();
+})();
+</script></body></html>
